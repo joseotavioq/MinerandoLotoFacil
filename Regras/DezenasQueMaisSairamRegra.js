@@ -13,9 +13,6 @@ DezenasQueMaisSairamRegra.prototype.Regra = function (numeros)
 			novosNumeros.push(numeros[i]);
 		}
 	}
-
-	console.log('Total apos aplicar regra DezenasQueMaisSairamRegra: ' + novosNumeros.length);
-
 	return novosNumeros;
 };
 
