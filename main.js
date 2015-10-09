@@ -32,7 +32,6 @@ for(var i = 0; i < numerosMinerados.length; i++)
 		console.log('Seu jogo esta entre os minerados!!!');
 	}
 }
-
 /*
 01  02  03  06  07
 08  11  12  13  15
