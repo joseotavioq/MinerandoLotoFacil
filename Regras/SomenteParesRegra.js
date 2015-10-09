@@ -1,6 +1,6 @@
 function SomenteParesRegra(numeros)
 {
-
+	this.nome = 'Somente Pares';
 };
 
 SomenteParesRegra.prototype.Regra = function (numeros)

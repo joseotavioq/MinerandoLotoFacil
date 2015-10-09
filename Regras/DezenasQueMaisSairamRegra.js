@@ -1,6 +1,6 @@
 function DezenasQueMaisSairamRegra(numeros)
 {
-
+	this.nome = 'Dezenas que mais sairam (1, 2 e 24)';
 };
 
 DezenasQueMaisSairamRegra.prototype.Regra = function (numeros)

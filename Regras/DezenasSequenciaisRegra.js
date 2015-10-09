@@ -1,6 +1,6 @@
 function DezenasSequenciaisRegra(numeros)
 {
-
+	this.nome = 'Dezenas sequenciais <= 4';
 };
 
 DezenasSequenciaisRegra.prototype.Regra = function (numeros)

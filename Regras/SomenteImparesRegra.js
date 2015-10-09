@@ -1,6 +1,6 @@
 function SomenteImparesRegra(numeros)
 {
-
+	this.nome = 'Somente Impares';
 };
 
 SomenteImparesRegra.prototype.Regra = function (numeros)

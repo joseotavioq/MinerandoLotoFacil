@@ -24,7 +24,7 @@ Combinacao.prototype.Criar = function (min)
     var all = [];
     fn(min, a, [], all);
 
-	console.log('Total de Combinacoes: ' + all.length);
+	console.log('Combinacoes p/ ' + min + ' num.: ' + all.length);
     return all;
 };
 
