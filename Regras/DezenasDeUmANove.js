@@ -1,9 +1,9 @@
-function SomenteImparesRegra(numeros)
+function DezenasDeUmANove(numeros)
 {
-	this.nome = 'Somente Impares';
+	this.nome = 'Dezenas de 1 a 9 >= 3';
 };
 
-SomenteImparesRegra.prototype.Regra = function (numeros)
+DezenasDeUmANove.prototype.Regra = function (numeros)
 {
 	var novosNumeros = [];
 	for(var i = 0; i < numeros.length; i++)
@@ -11,13 +11,13 @@ SomenteImparesRegra.prototype.Regra = function (numeros)
 		var qtd = 0;
 		for(var j = 0; j < numeros[i].length; j++)
 		{
-			if(numeros[i][j] % 2 != 0)
+			if(numeros[i][j] >= 1 && numeros[i][j] <= 9)
 			{
 				qtd++;
 			}
 		}
 
-		if(qtd <= 12)
+		if(qtd >= 3)
 		{
 			novosNumeros.push(numeros[i]);
 		}
@@ -25,4 +25,4 @@ SomenteImparesRegra.prototype.Regra = function (numeros)
 	return novosNumeros;
 };
 
-module.exports = SomenteImparesRegra;
+module.exports = DezenasDeUmANove;

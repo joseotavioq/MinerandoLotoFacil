@@ -17,7 +17,7 @@ GerarStrategy.prototype.Executar = function (numeros)
 		 console.log('[' + _regras[i].nome + ']: ' + novosNumeros.length);
 	}
 
-	console.log('Total minerado: ' + novosNumeros.length);
+	//console.log('Total minerado: ' + novosNumeros.length);
 	return novosNumeros;
 };
 

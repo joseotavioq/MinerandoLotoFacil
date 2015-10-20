@@ -1271,39 +1271,71 @@ function NumerosJaSorteadosRegra(numeros)
 [01,02,03,04,07,11,13,14,15,16,19,22,23,24,25],
 [01,02,03,05,06,08,09,10,11,13,14,15,20,23,24],
 [02,03,05,06,07,09,11,12,13,15,16,17,18,22,25],
-[01,02,03,06,07,08,11,12,13,15,17,18,21,22,24] //jogo 1268
+[01,02,03,06,07,08,11,12,13,15,17,18,21,22,24],
+[01,04,05,07,08,11,13,14,16,17,18,20,21,22,23],
+[01,02,03,04,05,06,08,09,10,11,13,20,21,23,25] //jogo 1270
 
     ];
 };
 
 NumerosJaSorteadosRegra.prototype.Regra = function (numeros)
 {
-    var novosNumeros = [];
+    var novosNumeros = [], qtdJogosExistentes = 0;
+
     for(var i = 0; i < numeros.length; i++)
     {
         var existeJogo = false;
-        for(var j = 0; j < _jogos.length; j++)
+
+        for(var j = _jogos.length - 1; j >= 0; j--)
         {
-            if(numeros[i].indexOf(_jogos[j][0]) > -1 && numeros[i].indexOf(_jogos[j][1]) > -1
-                 && numeros[i].indexOf(_jogos[j][2]) > -1 && numeros[i].indexOf(_jogos[j][3]) > -1
-                  && numeros[i].indexOf(_jogos[j][4]) > -1 && numeros[i].indexOf(_jogos[j][5]) > -1
-                   && numeros[i].indexOf(_jogos[j][6]) > -1 && numeros[i].indexOf(_jogos[j][7]) > -1
-                    && numeros[i].indexOf(_jogos[j][8]) > -1 && numeros[i].indexOf(_jogos[j][9]) > -1
-                     && numeros[i].indexOf(_jogos[j][10]) > -1 && numeros[i].indexOf(_jogos[j][11]) > -1
-                      && numeros[i].indexOf(_jogos[j][12]) > -1 && numeros[i].indexOf(_jogos[j][13]) > -1
-                       && numeros[i].indexOf(_jogos[j][14]) > -1)
-            {
-                existeJogo = true;
-                break;
-            }
+        	var qtd = 0;
+
+        	for(var k = 0; k < _jogos[j].length; k++)
+        		if(numeros[i].indexOf(_jogos[j][k]) > -1)
+        			qtd++;
+
+        	if(qtd == 15)
+        	{
+        		existeJogo = true;
+        		_jogos.splice(j, 1);
+        		break;
+        	}
         }
 
         if(!existeJogo)
-        {
             novosNumeros.push(numeros[i]);
-        }
+        else
+        	qtdJogosExistentes++;
     }
+
+    console.log('...Qtd de jogos existentes que foram retirados: ' + qtdJogosExistentes);
     return novosNumeros;
+};
+
+NumerosJaSorteadosRegra.prototype.QtdMaxParesImpares = function ()
+{
+    var qtdMaxPares = 0, qtdMaxImpares = 0;
+
+    for(var i = 0; i < _jogos.length; i++)
+    {
+        var qtdPares = 0, qtdImpares = 0;
+        for(var j = 0; j < _jogos[i].length; j++)
+        {
+            if(_jogos[i][j] % 2 == 0)
+            {
+                qtdPares++;
+            }
+            else
+            {
+                qtdImpares++;
+            }
+        }
+        qtdMaxPares = Math.max(qtdMaxPares, qtdPares);
+        qtdMaxImpares = Math.max(qtdMaxImpares, qtdImpares);
+    }
+
+    console.log('Impares: ' + qtdMaxImpares);
+    console.log('Pares: ' + qtdMaxPares);
 };
 
 module.exports = NumerosJaSorteadosRegra;
