@@ -31,7 +31,3 @@ for(var i = 0; i < 3; i++)
 	var index = Math.floor(Math.random() * (numerosMinerados.length - 1) + 1);
 	console.log(numerosMinerados[index]);
 }
-
-//Analise
-//var analise = new NumerosJaSorteadosRegra()
-//analise.QtdMaxParesImpares();
